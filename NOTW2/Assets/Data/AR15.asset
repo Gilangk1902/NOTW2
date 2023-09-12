@@ -15,3 +15,4 @@ MonoBehaviour:
   weapon_name: AR15
   damage: 40
   model: {fileID: 5843196975514868269, guid: 82067b8f656010947ba20b3cc7d7713f, type: 3}
+  fire_rate: 300

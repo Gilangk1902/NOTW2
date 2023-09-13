@@ -8,5 +8,5 @@ public class PlayerStat : ScriptableObject
     public float movement_speed;
     public float sprint_multiplier;
     public float jump_force;
-    public float max_numOf_jump;
+    public int max_numOf_jump;
 }

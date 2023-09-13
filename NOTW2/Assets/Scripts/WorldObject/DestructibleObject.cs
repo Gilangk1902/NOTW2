@@ -14,7 +14,7 @@ public class DestructibleObject : MonoBehaviour, IHitable
 
     private void Update()
     {
-        test();
+
     }
 
     private void Awake()

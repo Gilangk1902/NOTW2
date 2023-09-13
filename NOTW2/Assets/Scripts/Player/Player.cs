@@ -3,7 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData player_data;
-    [SerializeField] private PlayerStat player_stat;
+
+    [SerializeField] private BasicStats stats;
 
     [SerializeField] private CameraLook camera_look;
     [SerializeField] private Movement movement;
@@ -12,6 +13,12 @@ public class Player : MonoBehaviour
 
     public bool isGrounded;
     [SerializeField] private PlayerState player_state;
+
+    private void Start()
+    {
+        
+    }
+
     void Awake()
     {
         camera_look.player = this;
@@ -30,14 +37,6 @@ public class Player : MonoBehaviour
 
     public PlayerData getPlayerData(){
         return player_data;
-    }
-
-    public PlayerStat getPlayerStat(){
-        return player_stat;
-    }
-
-    public PlayerState getPlayerState(){
-        return player_state;
     }
     public void Die(){
         camera_look.Die();

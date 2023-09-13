@@ -1215,6 +1215,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2075111474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3187020597815318917, guid: 5f6d1e86005e33349af1970b146af713, type: 3}
+  m_PrefabInstance: {fileID: 3187020599143558057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2075111483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075111474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f7e93b9db4533439fd7ec3391b973b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debuffs: 
+  stat: {fileID: 2075111484}
+--- !u!114 &2075111484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075111474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c62f111507223418fef3da4f860e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_stat: {fileID: 11400000, guid: 9d61edeb763b144499d617866c775a48, type: 2}
+  health: 0
+  movement_speed: 0
+  jump_force: 0
+  sprint_multiplier: 0
+  max_num_of_jump: 0
 --- !u!1 &2103081293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1339,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3187020597815318938, guid: 5f6d1e86005e33349af1970b146af713, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 2075111484}
     - target: {fileID: 3187020598521532868, guid: 5f6d1e86005e33349af1970b146af713, type: 3}
       propertyPath: m_Name
       value: Feet

@@ -6,6 +6,12 @@ public class Condition : MonoBehaviour
 {
     [SerializeField] private List<Debuff_Enum> debuffs;
     [SerializeField] private BasicStats stat;
+    private bool slowed;
+
+    private void Start()
+    {
+        slowed = false;
+    }
 
     private void Update()
     {
@@ -27,7 +33,7 @@ public class Condition : MonoBehaviour
 
     private void ConditionHandling()
     {
-        if(debuffs.Contains(Debuff_Enum.Slow))
+        if(debuffs.Contains(Debuff_Enum.Slow) && !slowed)
         {
             Slow();
         }
@@ -40,8 +46,6 @@ public class Condition : MonoBehaviour
             debuffs.Add(newDebuff);
         }
     }
-
-
 
     private void Slow()
     {

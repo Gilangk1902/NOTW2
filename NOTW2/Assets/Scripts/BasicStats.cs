@@ -29,4 +29,19 @@ public class BasicStats : MonoBehaviour
     {
         return movement_speed;
     }
+
+    public float getJumpForce()
+    {
+        return jump_force;
+    }
+
+    public float getSprintMultiplier()
+    {
+        return sprint_multiplier;
+    }
+
+    public float getNumOfJump()
+    {
+        return max_num_of_jump;
+    }
 }

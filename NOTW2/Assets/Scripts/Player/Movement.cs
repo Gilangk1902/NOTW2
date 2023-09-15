@@ -20,14 +20,14 @@ public class Movement : PlayerBehaviour
     }
 
     public void Sprint(){
-        float multiplier = getPlayer().getPlayerStat().sprint_multiplier;
+        float multiplier = getPlayer().getPlayerStat().getSprintMultiplier();
         Move(multiplier);
     }
 
     private void Move(float multiplier){
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        float movement_speed = getPlayer().getPlayerStat().movement_speed * multiplier;
+        float movement_speed = getPlayer().getPlayerStat().getMovementSpeed() * multiplier;
 
         Vector3 moveDirection = transform.forward*verticalInput + transform.right * horizontalInput;
         moveDirection.y =  0;
@@ -39,10 +39,10 @@ public class Movement : PlayerBehaviour
 
     private int current_jump = 0;
     public void Jump(){
-        if(player.getPlayerStat().max_numOf_jump-1 > current_jump){
+        if(player.getPlayerStat().getNumOfJump()-1 > current_jump){
             current_jump++;
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            rb.AddForce(Vector3.up * player.getPlayerStat().jump_force, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * player.getPlayerStat().getJumpForce(), ForceMode.Impulse);
         }
     }
 

@@ -3,7 +3,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerData player_data;
-
     [SerializeField] private BasicStats stats;
 
     [SerializeField] private CameraLook camera_look;
@@ -38,6 +37,11 @@ public class Player : MonoBehaviour
     public PlayerData getPlayerData(){
         return player_data;
     }
+
+    public BasicStats getPlayerStat() { return stats; }
+
+    public PlayerState getPlayerState() { return player_state; }
+
     public void Die(){
         camera_look.Die();
     }

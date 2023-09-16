@@ -21,10 +21,24 @@ public class BasicStats : MonoBehaviour
         max_num_of_jump = player_stat.max_numOf_jump;
     }
 
+    public void Refresh()
+    {
+        movement_speed = player_stat.movement_speed;
+        jump_force = player_stat.jump_force;
+        sprint_multiplier = player_stat.sprint_multiplier;
+        max_num_of_jump = player_stat.max_numOf_jump;
+    }
+
     public void setMovementSpeed(float value) 
     {
         movement_speed = value;
     }
+
+    public int getHealth()
+    {
+        return health;
+    }
+
     public float getMovementSpeed()
     {
         return movement_speed;

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Debuff
 {
-    public static void Slow(float movement_speed)
+    public static void Slow(BasicStats  stat, int multiplier)
     {
-        movement_speed = movement_speed / 4;
+        stat.setMovementSpeed(stat.getMovementSpeed()/multiplier);
     }
 }
 

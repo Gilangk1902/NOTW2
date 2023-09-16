@@ -6,40 +6,42 @@ public class Condition : MonoBehaviour
 {
     [SerializeField] private List<Debuff_Enum> debuffs;
     [SerializeField] private BasicStats stat;
+
     private bool slowed;
+    private float slowed_time;
 
     private void Start()
     {
         slowed = false;
+        slowed_time = 3f;
     }
 
     private void Update()
     {
         ConditionHandling();
-        test();
     }
 
-    private void test()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddDebuff(Debuff_Enum.Poison);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            AddDebuff(Debuff_Enum.Slow);
-        }
-    }
 
     private void ConditionHandling()
     {
         if(debuffs.Contains(Debuff_Enum.Slow) && !slowed)
         {
-            Slow();
+            Debuff.Slow(stat, 4);
+            slowed = true;
+        }
+        else if(!debuffs.Contains(Debuff_Enum.Slow) && slowed)
+        {
+            slowed = false;
         }
     }
 
-    private void AddDebuff(Debuff_Enum newDebuff)
+    public IEnumerator RemoveCondition(float time, Debuff_Enum debuff)
+    {
+        yield return new WaitForSeconds(time);
+        RemoveDebuff(debuff);
+    }
+
+    public void AddDebuff(Debuff_Enum newDebuff)
     {
         if (!debuffs.Contains(newDebuff))
         {
@@ -47,9 +49,19 @@ public class Condition : MonoBehaviour
         }
     }
 
-    private void Slow()
+    public void RemoveDebuff(Debuff_Enum debuff)
     {
-        stat.setMovementSpeed(stat.getMovementSpeed()/2);
+        if (debuffs.Contains(debuff))
+        {
+            debuffs.Remove(debuff);
+            stat.Refresh();
+        }
     }
+
+    public List<Debuff_Enum> getDebuffs() 
+    {
+        return debuffs;
+    }
+
 
 }

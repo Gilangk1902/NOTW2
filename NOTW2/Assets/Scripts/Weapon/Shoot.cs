@@ -29,13 +29,14 @@ public class Shoot : WeaponBehaviour
             {
                 object_hit.GetComponent<IHitable>()
                           .ModifiyHealth((int)weapon.getCurrentWeapon().damage);
+                Debug.Log(object_hit.name);
             }
         }
     }
 
     private IEnumerator ResetStateAfterShooting()
     {
-        yield return new WaitForSeconds(time_interval);
+        yield return new WaitForSeconds(time_interval+0.5f);
 
         weapon.getWeaponState()
               .setState(WeaponStateEnum.Idle);

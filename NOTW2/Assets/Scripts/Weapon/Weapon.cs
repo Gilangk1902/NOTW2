@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private WeaponData current_weapon;
     [SerializeField] private WeaponController weapon_controller;
     [SerializeField] private WeaponState weapon_state;
+    [SerializeField] private WeaponAnimationHandler weapon_animation_handler;
 
     void Awake(){
         current_weapon = loadout.getPrimary();
@@ -17,6 +18,7 @@ public class Weapon : MonoBehaviour
         loadout.weapon = this;
         weapon_switch.weapon = this;
         weapon_controller.weapon = this;
+        weapon_animation_handler.weapon = this;
         weapon_state.setState(WeaponStateEnum.Idle);
     }
 

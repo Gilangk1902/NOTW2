@@ -388,6 +388,7 @@
 "Assets/Scripts/WorldObject/DestructibleObject.cs"
 "Assets/Scripts/WorldObject/DestructibleObjectBehaviour.cs"
 "Assets/Scripts/WorldObject/DestructibleObjectStatus.cs"
+"Assets/Scripts/WorldObject/ObjectPhasingDetector.cs"
 -langversion:9.0
 
 /deterministic

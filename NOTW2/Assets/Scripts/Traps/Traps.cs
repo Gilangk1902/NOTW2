@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Traps : MonoBehaviour
 {
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag(Tags.PLAYER))
         {

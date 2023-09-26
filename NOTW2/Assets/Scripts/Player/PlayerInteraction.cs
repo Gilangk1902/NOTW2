@@ -25,6 +25,7 @@ public class PlayerInteraction : PlayerBehaviour
     {
         weapon_state.setState(WeaponStateEnum.Idle);
         object_grab.GetComponent<Rigidbody>().useGravity = true;
+        object_grab.GetComponent<ObjectPhasingDetector>().isEnabled = false;
         object_grab = null;
     }
 
@@ -43,6 +44,7 @@ public class PlayerInteraction : PlayerBehaviour
         {
             object_grab = hit_info.collider.gameObject;
             object_grab.GetComponent<Rigidbody>().useGravity= false;
+            object_grab.GetComponent<ObjectPhasingDetector>().isEnabled = true;
             weapon_state.setState(WeaponStateEnum.Grab);
         }
     }

@@ -6,6 +6,8 @@ public class PlayerController : PlayerBehaviour
 {
     public float PLAYER_VIEW_RADIUS = 100f;
     public float PLAYER_VIEW_DISTANCE = 100f;
+    private bool interact_hold = false;
+    private float interact_hold_time = 0f;
     private int layer_mask;
     private void Awake()
     {
@@ -17,6 +19,12 @@ public class PlayerController : PlayerBehaviour
         MovementController();
         JumpController();
         InteractionController();
+        test();
+    }
+
+    void test()
+    {
+        Debug.Log(interact_hold_time);
     }
 
     private void InteractionController()
@@ -27,16 +35,33 @@ public class PlayerController : PlayerBehaviour
         if (Physics.Raycast(player_camera.position, player_camera.forward, 
             out RaycastHit hit_info, PLAYER_VIEW_DISTANCE, layer_mask))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (player.getPlayerInteraction().getObjectGrab() == null)
             {
-                if (player.getPlayerInteraction().getObjectGrab() == null)
+                if(Input.GetKeyDown(KeyCode.E))
                 {
                     player.getPlayerInteraction().Interact(hit_info);
                 }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    player.getPlayerInteraction().Drop();
+                }
+                else if (Input.GetKey(KeyCode.F)) 
+                {
+                    interact_hold= true;
+                    interact_hold_time += Time.deltaTime;
+                }
                 else
                 {
-                    player.getPlayerInteraction().ResetGrab();
-                }   
+                    if(interact_hold)
+                    {
+                        player.getPlayerInteraction().Throw(interact_hold_time);
+                    }
+                    interact_hold = false;
+                    interact_hold_time= 0f;
+                }
             }
         }
     }

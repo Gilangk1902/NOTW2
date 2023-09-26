@@ -28,7 +28,7 @@ public class ObjectPhasingDetector : MonoBehaviour
         if(Physics.CheckSphere(transform.position, max_phase_radius, ground_layer_mask))
         {
             test();
-            player_interaction.ResetGrab();
+            player_interaction.Throw(0f);
         }
     }
 

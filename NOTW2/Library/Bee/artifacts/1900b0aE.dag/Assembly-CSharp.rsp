@@ -359,6 +359,8 @@
 "Assets/GameObject/Weapon/WeaponGameObject.cs"
 "Assets/Scripts/Animation/Weapon/WeaponAnimationHandler.cs"
 "Assets/Scripts/BasicStats.cs"
+"Assets/Scripts/Button/Button.cs"
+"Assets/Scripts/Button/WeightButton.cs"
 "Assets/Scripts/Condition.cs"
 "Assets/Scripts/Debuff.cs"
 "Assets/Scripts/Enemy/Enemy.cs"

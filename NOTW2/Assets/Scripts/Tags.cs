@@ -5,4 +5,5 @@ using UnityEngine;
 public class Tags 
 {
     public static string PLAYER = "Player";
+    public static string OBJECT = "Object";
 }

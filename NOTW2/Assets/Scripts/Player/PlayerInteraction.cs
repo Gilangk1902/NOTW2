@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerInteraction : PlayerBehaviour
 {
     [SerializeField] private Transform hand;
+    private float starting_force = 30f;
+    private float time_cap = 2f;
     private GameObject object_grab;
     [SerializeField] private WeaponState weapon_state;
     private void Awake()
@@ -21,10 +23,28 @@ public class PlayerInteraction : PlayerBehaviour
         }
     }
 
-    public void ResetGrab()
+
+    public void Drop()
     {
+        Throw(0f);
+    }
+
+    public void Throw(float time)
+    {
+        if (time > time_cap)
+        {
+            time = time_cap;
+        }
         weapon_state.setState(WeaponStateEnum.Idle);
         object_grab.GetComponent<Rigidbody>().useGravity = true;
+        object_grab.GetComponent<Rigidbody>()
+                   .AddForce
+                   (
+                        starting_force * time * player.getCameraLook()
+                                                      .getPlayerCamera()
+                                                      .transform.forward, 
+                        ForceMode.Impulse
+                   );
         object_grab.GetComponent<ObjectPhasingDetector>().isEnabled = false;
         object_grab = null;
     }

@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         camera_look.player = this;
         movement.player = this;
         player_controller.player = this;
+        player_interaction.player = this;
     }
 
     void Update()

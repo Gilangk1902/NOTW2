@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Movement movement;
     [SerializeField] private GameObject feet;
     [SerializeField] private PlayerController player_controller;
+    [SerializeField] private PlayerInteraction player_interaction;
 
     public bool isGrounded;
     [SerializeField] private PlayerState player_state;
@@ -41,6 +42,9 @@ public class Player : MonoBehaviour
     public BasicStats getPlayerStat() { return stats; }
 
     public PlayerState getPlayerState() { return player_state; }
+    public CameraLook getCameraLook() { return camera_look; }
+
+    public PlayerInteraction getPlayerInteraction(){return player_interaction;}
 
     public void Die(){
         camera_look.Die();

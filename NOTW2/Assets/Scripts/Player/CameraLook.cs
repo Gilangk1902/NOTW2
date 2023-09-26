@@ -41,6 +41,11 @@ public class CameraLook : PlayerBehaviour
         player_camera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
     }
 
+    public GameObject getPlayerCamera()
+    {
+        return player_camera;
+    }
+
     public override void Die()
     {
         enable = false;

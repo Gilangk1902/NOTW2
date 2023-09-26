@@ -4,10 +4,41 @@ using UnityEngine;
 
 public class PlayerController : PlayerBehaviour
 {
+    public float PLAYER_VIEW_RADIUS = 100f;
+    public float PLAYER_VIEW_DISTANCE = 100f;
+    private int layer_mask;
+    private void Awake()
+    {
+        layer_mask = ~LayerMask.GetMask("Player");
+    }
+
     void Update()
     {
         MovementController();
         JumpController();
+        InteractionController();
+    }
+
+    private void InteractionController()
+    {
+        Transform player_camera = player.getCameraLook()
+                                        .getPlayerCamera()
+                                        .transform;
+        if (Physics.Raycast(player_camera.position, player_camera.forward, 
+            out RaycastHit hit_info, PLAYER_VIEW_DISTANCE, layer_mask))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (player.getPlayerInteraction().getObjectGrab() == null)
+                {
+                    player.getPlayerInteraction().Interact(hit_info);
+                }
+                else
+                {
+                    player.getPlayerInteraction().ResetGrab();
+                }   
+            }
+        }
     }
 
     void MovementController(){

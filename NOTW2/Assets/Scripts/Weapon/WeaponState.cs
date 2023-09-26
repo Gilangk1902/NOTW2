@@ -8,7 +8,7 @@ public class WeaponState : MonoBehaviour
 
     private void Update()
     {
-        test();
+        
     }
 
     public void setState(WeaponStateEnum new_state){
@@ -18,16 +18,12 @@ public class WeaponState : MonoBehaviour
     public WeaponStateEnum getCurrentState(){
         return current_state;
     }
-
-    public void test()
-    {
-        Debug.Log(current_state.ToString());
-    }
 }
 
 public enum WeaponStateEnum{
     Idle,
     Shoot,
     Switch,
-    Reload
+    Reload,
+    Grab
 }

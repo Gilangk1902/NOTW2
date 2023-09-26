@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class WeightButton : Button
 {
-    private bool activated = false;
-    private void Update()
-    {
-        if(activated)
-        {
-            Activate();
-        }
-    }
+    [SerializeField] private InteractableObject interactableObject;
 
     public override void Activate()
     {
-        test();
+        interactableObject.Activate();
     }
 
     public override void Deactivate()
@@ -27,7 +20,7 @@ public class WeightButton : Button
     {
         if (collision.gameObject.CompareTag(Tags.OBJECT))
         {
-            activated= true;
+            Activate();
         }
     }
 

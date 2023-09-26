@@ -40,9 +40,10 @@ public class PlayerInteraction : PlayerBehaviour
         object_grab.GetComponent<Rigidbody>()
                    .AddForce
                    (
-                        starting_force * time * player.getCameraLook()
-                                                      .getPlayerCamera()
-                                                      .transform.forward, 
+                        starting_force * time * 
+                        player.getCameraLook()
+                              .getPlayerCamera()
+                              .transform.forward, 
                         ForceMode.Impulse
                    );
         object_grab.GetComponent<ObjectPhasingDetector>().isEnabled = false;

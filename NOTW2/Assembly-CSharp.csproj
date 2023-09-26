@@ -96,6 +96,8 @@
     <Compile Include="Assets\Scripts\WorldObject\DestructibleObject.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
     <Compile Include="Assets\Scripts\UI\HUD.cs" />
+    <Compile Include="Assets\Scripts\WorldObject\InteractableObject.cs" />
+    <Compile Include="Assets\Scripts\WorldObject\Rocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
